@@ -1,6 +1,8 @@
 package com.travelbnb.travelbnb.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.websocket.OnMessage;
 
 @Entity
 @Table(name = "reviews")

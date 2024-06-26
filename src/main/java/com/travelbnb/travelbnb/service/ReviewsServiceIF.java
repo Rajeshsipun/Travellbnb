@@ -17,4 +17,6 @@ public interface ReviewsServiceIF {
     List<Reviews> getAllReviews();
 
     Reviews getByReview(long reviewId);
+
+    List<Reviews> findByAppUser(AppUser user);
 }

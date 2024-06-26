@@ -78,5 +78,15 @@ public class ReviewController {
         Reviews reviews =  reviewsServiceIF.getByReview(reviewId);
         return new ResponseEntity<>(reviews,HttpStatus.OK);
     }
+
+    //http://localhost:8080/api/v1/reviews
+    @GetMapping("/getUserReview")
+    public ResponseEntity <List<Reviews>>getUserReviews(
+            @AuthenticationPrincipal AppUser user
+    ){
+        List<Reviews>reviews = reviewsServiceIF.findByAppUser(user);
+        return new ResponseEntity<>(reviews,HttpStatus.OK);
+    }
+
     }
 

@@ -31,8 +31,13 @@ public class ReviewsServiceIMPl implements ReviewsServiceIF {
         if (OpProperty.isPresent()) {
             Property property = OpProperty.get();
             if (reviewsRepository.findReviewByUser(user, property) != null) {
-                throw new IllegalStateException("Review Exists");
-            } else {
+                throw new ResourceNotException("Review Exists");
+
+
+            }
+
+        else {
+
                 Integer ratings = reviews.getRatings();
                 if (ratings < 1 || ratings > 5) {
                     throw new ResourceNotException("Rating should be between 1 and 5");
@@ -92,5 +97,15 @@ public class ReviewsServiceIMPl implements ReviewsServiceIF {
         Reviews reviews = reviewsRepository.findById(reviewId).get();
         return reviews;
     }
+
+    @Override
+    public List<Reviews> findByAppUser(AppUser user) {
+        List<Reviews> byAppUser = reviewsRepository.findByAppUser(user);
+
+
+        return byAppUser;
+    }
+
+
 }
 
