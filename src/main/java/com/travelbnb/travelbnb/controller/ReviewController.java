@@ -84,7 +84,7 @@ public class ReviewController {
     public ResponseEntity <List<Reviews>>getUserReviews(
             @AuthenticationPrincipal AppUser user
     ){
-        List<Reviews>reviews = reviewsServiceIF.findByAppUser(user);
+        List<Reviews>reviews = reviewsServiceIF.findByUserReview(user);
         return new ResponseEntity<>(reviews,HttpStatus.OK);
     }
 

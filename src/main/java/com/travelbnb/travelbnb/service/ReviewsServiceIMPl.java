@@ -99,8 +99,8 @@ public class ReviewsServiceIMPl implements ReviewsServiceIF {
     }
 
     @Override
-    public List<Reviews> findByAppUser(AppUser user) {
-        List<Reviews> byAppUser = reviewsRepository.findByAppUser(user);
+    public List<Reviews> findByUserReview(AppUser user) {
+        List<Reviews> byAppUser = reviewsRepository.findByUserReview(user);
 
 
         return byAppUser;

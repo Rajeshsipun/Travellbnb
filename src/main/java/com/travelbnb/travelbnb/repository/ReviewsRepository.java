@@ -16,5 +16,5 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
   Reviews  findReviewByUser(@Param("user") AppUser user , @Param("property") Property property );
 
 @Query("Select r from Reviews r where r.appUser=:user")
-   List<Reviews> findByAppUser(@Param("user")AppUser user) ;
+   List<Reviews> findByUserReview(@Param("user")AppUser user) ;
 }
