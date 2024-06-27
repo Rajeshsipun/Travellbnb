@@ -26,7 +26,7 @@ public class ReviewController {
         this.propertyServiceIF = propertyServiceIF;
     }
 
-//http://localhost:8080/api/v1/reviews/addReview
+//http://localhost:8080/api/v1/reviews/addReview?propertyId=5
 
     @PostMapping("/addReview")
     public ResponseEntity<?>addReview(

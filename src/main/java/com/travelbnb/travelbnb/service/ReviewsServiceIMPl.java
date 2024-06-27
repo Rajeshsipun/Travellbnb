@@ -83,8 +83,9 @@ public class ReviewsServiceIMPl implements ReviewsServiceIF {
 
             Reviews save = reviewsRepository.save(reviewsEntity);
             return save;
+        }else {
+            throw new ResourceNotException ("Not Found User ID "+ reviewId);
         }
-        return null;
     }
 
     @Override
