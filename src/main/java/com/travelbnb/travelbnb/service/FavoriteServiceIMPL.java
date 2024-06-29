@@ -8,6 +8,8 @@ import com.travelbnb.travelbnb.repository.FavouriteRepository;
 import com.travelbnb.travelbnb.repository.PropertyEntityRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FavoriteServiceIMPL implements FavoriteService {
 
@@ -32,21 +34,42 @@ public class FavoriteServiceIMPL implements FavoriteService {
 
     }
 
-    public Favourite dtoToEntity(FavouriteDto favouriteDto ){
-        Favourite favourite = new Favourite();
-        favourite.setStatus(favouriteDto.getStatus());
-        favourite.setProperty(favouriteDto.getProperty());
-        favourite.setAppUser(favouriteDto.getAppUser());
 
-        return favourite;
+    @Override
+    public List<Favourite> getUserFavourite(AppUser user) {
+        List<Favourite> LsUserFavourite = favouriteRepository.findByUserFavourite(user);
+        return LsUserFavourite;
     }
 
-    public FavouriteDto entityToDto(Favourite favourite ){
-        FavouriteDto dto = new FavouriteDto();
-        dto.setId(favourite.getId());
-        dto.setStatus(favourite.getStatus());
-        dto.setProperty(favourite.getProperty());
-        dto.setAppUser(favourite.getAppUser());
-        return dto;
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public Favourite dtoToEntity(FavouriteDto favouriteDto ){
+//        Favourite favourite = new Favourite();
+//        favourite.setStatus(favouriteDto.getStatus());
+//        favourite.setProperty(favouriteDto.getProperty());
+//        favourite.setAppUser(favouriteDto.getAppUser());
+//
+//        return favourite;
+//    }
+//
+//    public FavouriteDto entityToDto(Favourite favourite ){
+//        FavouriteDto dto = new FavouriteDto();
+//        dto.setId(favourite.getId());
+//        dto.setStatus(favourite.getStatus());
+//        dto.setProperty(favourite.getProperty());
+//        dto.setAppUser(favourite.getAppUser());
+//        return dto;
+//    }
 }
